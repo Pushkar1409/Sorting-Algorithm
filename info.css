@@ -10,6 +10,7 @@
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
 }
 
 #info-section:hover {
@@ -18,7 +19,7 @@
 }
 
 /* Box for displaying the code */
-#code-box {
+#code-box, #image-box {
     width: 45%;
     padding: 20px;
     background-color: #f0faff;  /* Lighter blue background */
@@ -26,13 +27,15 @@
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 10px 0;  /* Space between items */
 }
 
-#code-box:hover {
+#code-box:hover, #image-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for the code box content */
 #code-box pre {
     background-color: #1e1f29;  /* Darker gray background for code */
     color: #f2f4f7;  /* Lighter text for code */
@@ -47,25 +50,7 @@
     color: #f78c6c;  /* Warm orange for highlighted code */
 }
 
-/* Box for displaying the image */
-#image-box {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f0faff;  /* Lighter blue background */
-    border: 1px solid #7fcaff;  /* Brighter blue border */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#image-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
+/* Styling for the image */
 #image-box img {
     max-width: 100%;
     max-height: 100%; /* Allow height to fit the box */
@@ -75,7 +60,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* General styling for buttons to make them more attractive */
+/* General styling for buttons */
 button {
     background-color: #007bff;  /* Bright blue button */
     color: white;
@@ -90,4 +75,21 @@ button {
 button:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    #info-section {
+        flex-direction: column;  /* Stack the boxes vertically */
+        padding: 15px;  /* Adjust padding */
+    }
+
+    #code-box, #image-box {
+        width: 100%;  /* Full width on mobile */
+    }
+
+    button {
+        width: 100%;  /* Make buttons full-width for easier tapping */
+        font-size: 1rem;
+    }
 }
